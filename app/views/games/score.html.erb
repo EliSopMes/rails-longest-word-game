@@ -1,16 +1,13 @@
-<div class="m-4">
-  <h1>Results</h1>
+<div class="m-4" style="text-align: center;">
+  <h1 class="mb-5">Results</h1>
 
    <% if @result == 'valid' %>
-    <p> <strong>Congratulations!</strong> <%=@answer.join%> is a valid english word! </p>
-    <p><%=@score%> is your overall score! </p>
+    <p style="font-size: 27px;"> <strong>Congratulations!</strong> <%=@answer.join%> is a valid english word! </p>
   <% elsif @result == 'invalid' %>
-    <p> Sorry but <%=@answer.join%> doesn't seem to be an english word... </p>
-    <p><%=@score%> is your overall score! </p>
+    <p style="font-size: 27px;"> Sorry but <%=@answer.join%> doesn't seem to be an english word... </p>
   <% elsif @result == 'not in grid' %>
-    <p> Sorry but <%=@answer.join%> can't be built out of <%=params[:array].split.join(', ')%> </p>
-    <p><%=@score%> is your overall score! </p>
+    <p style="font-size: 27px;"> Sorry but <%=@answer.join%> can't be built out of <%=@letters.join(", ")%> </p>
   <% end %>
   <br>
-  <%= link_to "Play again", new_path(@answer.length) %>
+  <%= link_to "Play again", root_path, class:"btn btn-outline-dark btn-lg" %>
 </div>
